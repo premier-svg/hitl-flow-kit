@@ -165,6 +165,15 @@ Read `docs/redaction-policy.md` before adding new examples.
 - Example release checklist workflow
 - Human approval inbox prototype
 
+## Maintainer Launch Pack
+
+If you are preparing a public launch, use:
+
+- `CHANGELOG.md` for the `v0.1.0` release note
+- `docs/github-publishing.md` for repository description, topics, and release checklist
+- `docs/issue-drafts.md` for good-first-issue and help-wanted drafts
+- `docs/launch-posts.md` for launch post drafts
+
 ## Contributing
 
 Contributions are welcome. Good first issues should be small, local, and safe to run without credentials. See `CONTRIBUTING.md`.
