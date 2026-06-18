@@ -14,6 +14,15 @@ Official program page:
 https://developers.openai.com/community/codex-for-oss/
 ```
 
+## Pre-submit Check
+
+Checked on 2026-06-18 against the official OpenAI form and program page.
+
+- The form requires first name, last name, email, GitHub username, repository URL, maintainer role, qualification text, OpenAI Organization ID, API-credit usage text, and an optional final note.
+- The form states 500-character limits for `Why does this repository qualify?`, `How will you use API credits for your project?`, and `Anything else we should know?`.
+- The program page says active open-source maintainers can apply, and OpenAI looks for usage, ecosystem importance, and evidence of active maintenance.
+- Current drafts are within the form limits: qualification 365 chars, API-credit usage 370 chars, final note 340 chars.
+
 ## Current Public Repo Facts
 
 - Repository: https://github.com/premier-svg/hitl-flow-kit
@@ -26,6 +35,18 @@ https://developers.openai.com/community/codex-for-oss/
 - Topics: `ai-agents`, `hitl`, `workflow`, `human-in-the-loop`, `automation`, `workflow-engine`, `developer-tools`, `codex`, `oss`, `audit-log`
 
 ## Form Fields
+
+### First Name
+
+Fill manually.
+
+### Last Name
+
+Fill manually.
+
+### Email
+
+Fill manually with the email associated with the ChatGPT account.
 
 ### GitHub Username
 
