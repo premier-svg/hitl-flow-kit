@@ -7,7 +7,7 @@ Use this before making the repository public.
 Repository name:
 
 ```text
-agentops-flow-kit
+hitl-flow-kit
 ```
 
 Description:
@@ -26,7 +26,7 @@ Topics:
 
 ```text
 ai-agents
-agentops
+hitl
 workflow
 human-in-the-loop
 automation
@@ -61,7 +61,7 @@ v0.1.0 - Initial public preview
 ## v0.1.0 Release Notes
 
 ~~~md
-AgentOps Flow Kit is an open-source workflow canvas and runner for human-in-the-loop AI agent operations.
+HITL Flow Kit is an open-source workflow canvas and runner for human-in-the-loop AI agent operations.
 
 This first public preview focuses on safe local primitives:
 

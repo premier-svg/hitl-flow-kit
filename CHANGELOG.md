@@ -2,7 +2,7 @@
 
 ## v0.1.0 - Initial Public Preview
 
-AgentOps Flow Kit starts as a small, credential-free public preview for designing and running human-in-the-loop AI agent workflows.
+HITL Flow Kit starts as a small, credential-free public preview for designing and running human-in-the-loop AI agent workflows.
 
 ### Added
 

@@ -5,7 +5,7 @@ Use these after the GitHub repository is public.
 ## X English
 
 ```text
-I am open-sourcing AgentOps Flow Kit:
+I am open-sourcing HITL Flow Kit:
 
 an open-source workflow canvas + runner for human-in-the-loop AI agent operations.
 
@@ -20,7 +20,7 @@ Repo: [GitHub URL]
 ```text
 AIエージェントを業務で安全に動かすためのOSSを作っています。
 
-AgentOps Flow Kit は、
+HITL Flow Kit は、
 承認、監査ログ、リトライ、担当者引き継ぎを前提にした
 human-in-the-loop 型のワークフロー基盤です。
 
@@ -38,13 +38,13 @@ AI agents often fail in production for boring reasons:
 - unsafe retries
 - no handoff path when automation gets stuck
 
-AgentOps Flow Kit is my attempt to make these operational patterns reusable.
+HITL Flow Kit is my attempt to make these operational patterns reusable.
 ```
 
 ## Show HN Draft
 
 ```text
-Show HN: AgentOps Flow Kit - human-in-the-loop workflows for AI agents
+Show HN: HITL Flow Kit - human-in-the-loop workflows for AI agents
 
 I built an open-source workflow canvas and runner for AI agent operations.
 
@@ -73,7 +73,7 @@ AIエージェントを業務に入れると、モデル性能よりも運用の
 
 ## 作ったもの
 
-AgentOps Flow Kit:
+HITL Flow Kit:
 
 - workflow schema
 - local runner

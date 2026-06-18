@@ -1,6 +1,6 @@
 # Redaction Policy
 
-AgentOps Flow Kit is designed for public examples. Keep it safe by default.
+HITL Flow Kit is designed for public examples. Keep it safe by default.
 
 ## Public OK
 

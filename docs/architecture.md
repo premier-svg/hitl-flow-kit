@@ -1,6 +1,6 @@
 # Architecture
 
-AgentOps Flow Kit has three small parts in `v0.1.0`.
+HITL Flow Kit has three small parts in `v0.1.0`.
 
 ## 1. Workflow Schema
 

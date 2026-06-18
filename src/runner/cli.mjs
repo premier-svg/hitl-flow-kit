@@ -17,7 +17,7 @@ if (errors.length > 0) {
 }
 
 const result = await runWorkflow(workflow, {
-  autoApprove: process.env.AGENTOPS_AUTO_APPROVE !== "false"
+  autoApprove: process.env.HITL_FLOW_AUTO_APPROVE !== "false"
 });
 
 console.log(JSON.stringify(result, null, 2));

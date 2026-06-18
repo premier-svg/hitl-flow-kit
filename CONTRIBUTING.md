@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for improving AgentOps Flow Kit.
+Thanks for improving HITL Flow Kit.
 
 ## Local Setup
 

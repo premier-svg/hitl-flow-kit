@@ -1,5 +1,5 @@
 {
-  "name": "agentops-flow-kit",
+  "name": "hitl-flow-kit",
   "version": "0.1.0",
   "description": "Open-source workflow canvas and runner for human-in-the-loop AI agent operations.",
   "type": "module",
@@ -7,7 +7,7 @@
   "private": false,
   "keywords": [
     "ai-agents",
-    "agentops",
+    "hitl",
     "workflow",
     "human-in-the-loop",
     "automation",
