@@ -11,68 +11,69 @@ export function validateWorkflow(workflow) {
   const errors = [];
 
   if (!workflow || typeof workflow !== "object") {
-    return ["workflow must be an object"];
+    return ["[Validation Error] The workflow definition must be a valid JSON object."];
   }
 
   for (const field of ["id", "version", "name"]) {
     if (!workflow[field] || typeof workflow[field] !== "string") {
-      errors.push(`workflow.${field} must be a non-empty string`);
+      errors.push(`[Validation Error] Missing root field: 'workflow.${field}' must be a non-empty string.`);
     }
   }
 
   if (!Array.isArray(workflow.steps) || workflow.steps.length === 0) {
-    errors.push("workflow.steps must be a non-empty array");
+    errors.push("[Validation Error] 'workflow.steps' must be an array containing at least one step.");
     return errors;
   }
 
   const stepIds = new Set();
 
   for (const [index, step] of workflow.steps.entries()) {
-    const prefix = `steps[${index}]`;
+    // DX Improvement: Try to use the step ID for context, fallback to index
+    const stepRef = step?.id ? `Step '${step.id}'` : `Step at index ${index}`;
 
     if (!step || typeof step !== "object") {
-      errors.push(`${prefix} must be an object`);
+      errors.push(`[Validation Error] ${stepRef} must be a valid JSON object.`);
       continue;
     }
 
     if (!step.id || typeof step.id !== "string") {
-      errors.push(`${prefix}.id must be a non-empty string`);
+      errors.push(`[Validation Error] ${stepRef} is missing a required 'id' string.`);
     } else if (stepIds.has(step.id)) {
-      errors.push(`duplicate step id: ${step.id}`);
+      errors.push(`[Validation Error] Duplicate step ID found: '${step.id}'. Step IDs must be unique.`);
     } else {
       stepIds.add(step.id);
     }
 
     if (!VALID_STEP_TYPES.has(step.type)) {
-      errors.push(`${prefix}.type must be one of ${Array.from(VALID_STEP_TYPES).join(", ")}`);
+      errors.push(`[Validation Error] ${stepRef} has an invalid type '${step.type}'. Allowed types: ${Array.from(VALID_STEP_TYPES).join(", ")}.`);
     }
 
     if (!step.name || typeof step.name !== "string") {
-      errors.push(`${prefix}.name must be a non-empty string`);
+      errors.push(`[Validation Error] ${stepRef} is missing a required 'name' string.`);
     }
 
     if (step.dependsOn !== undefined && !Array.isArray(step.dependsOn)) {
-      errors.push(`${prefix}.dependsOn must be an array when provided`);
+      errors.push(`[Validation Error] ${stepRef} 'dependsOn' property must be an array of string IDs.`);
     }
 
     if (step.type === "approval") {
       if (!step.approval?.role || !step.approval?.prompt) {
-        errors.push(`${prefix}.approval requires role and prompt`);
+        errors.push(`[Validation Error] ${stepRef} is type 'approval' but missing required 'approval.role' or 'approval.prompt' properties.`);
       }
     }
 
     if (step.type === "adapter_call") {
       if (!step.adapter?.name || !step.adapter?.action) {
-        errors.push(`${prefix}.adapter requires name and action`);
+        errors.push(`[Validation Error] ${stepRef} is type 'adapter_call' but missing required 'adapter.name' or 'adapter.action' properties.`);
       }
     }
 
     if (step.retry) {
       if (!Number.isInteger(step.retry.maxAttempts) || step.retry.maxAttempts < 1) {
-        errors.push(`${prefix}.retry.maxAttempts must be an integer >= 1`);
+        errors.push(`[Validation Error] ${stepRef} 'retry.maxAttempts' must be an integer >= 1.`);
       }
       if (!Number.isInteger(step.retry.delaySeconds) || step.retry.delaySeconds < 0) {
-        errors.push(`${prefix}.retry.delaySeconds must be an integer >= 0`);
+        errors.push(`[Validation Error] ${stepRef} 'retry.delaySeconds' must be an integer >= 0.`);
       }
     }
   }
@@ -84,22 +85,21 @@ export function validateWorkflow(workflow) {
 
     for (const dependency of step.dependsOn ?? []) {
       if (!stepIds.has(dependency)) {
-        errors.push(`step ${step.id} depends on missing step ${dependency}`);
+        errors.push(`[Validation Error] Step '${step.id}' depends on '${dependency}', but that step ID does not exist in this workflow.`);
       }
       if (dependency === step.id) {
-        errors.push(`step ${step.id} cannot depend on itself`);
+        errors.push(`[Validation Error] Step '${step.id}' cannot depend on itself.`);
       }
     }
   }
 
   const cycle = findCycle(workflow.steps.filter((step) => step && typeof step === "object"));
   if (cycle.length > 0) {
-    errors.push(`cycle detected: ${cycle.join(" -> ")}`);
+    errors.push(`[Validation Error] Infinite loop (cycle) detected in dependencies: ${cycle.join(" -> ")}. Please break this cycle.`);
   }
 
   return errors;
 }
-
 export function getExecutionOrder(workflow) {
   const errors = validateWorkflow(workflow);
   if (errors.length > 0) {
