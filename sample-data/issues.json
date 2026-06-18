@@ -1,0 +1,8 @@
+[
+  {
+    "id": "ISSUE-001",
+    "title": "Workflow validation message is hard to read",
+    "body": "The validation error should point to the exact step.",
+    "author": "octo-example"
+  }
+]
