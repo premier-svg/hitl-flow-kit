@@ -1,4 +1,4 @@
-# AgentOps Flow Kit
+# HITL Flow Kit
 
 Open-source workflow canvas and runner for human-in-the-loop AI agent operations.
 
@@ -6,11 +6,11 @@ Open-source workflow canvas and runner for human-in-the-loop AI agent operations
 ![Node.js >= 20](https://img.shields.io/badge/node-%3E%3D20-5fb3a4.svg)
 ![No runtime dependencies](https://img.shields.io/badge/runtime_deps-0-8fb3ff.svg)
 
-![AgentOps Flow Kit demo](./docs/assets/demo.svg)
+![HITL Flow Kit demo](./docs/assets/demo.svg)
 
 AI agents do not only fail because the model is weak. They fail because the workflow around the model is missing: approval gates, audit logs, retry rules, handoffs, and clear ownership.
 
-AgentOps Flow Kit turns those operating patterns into reusable workflow definitions that can be reviewed, tested, and maintained like code.
+HITL Flow Kit turns those operating patterns into reusable workflow definitions that can be reviewed, tested, and maintained like code.
 
 ## Why This Exists
 
@@ -192,4 +192,4 @@ Do not open an issue with secrets, tokens, private URLs, customer data, or produ
 
 ## Project Status
 
-AgentOps Flow Kit is early and intentionally small. The goal of `v0.1.x` is to make the core workflow shape useful, reviewable, and safe before adding real adapters.
+HITL Flow Kit is early and intentionally small. The goal of `v0.1.x` is to make the core workflow shape useful, reviewable, and safe before adding real adapters.

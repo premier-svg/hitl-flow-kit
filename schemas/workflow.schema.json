@@ -1,7 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/agentops-flow-kit/workflow.schema.json",
-  "title": "AgentOps Flow Kit Workflow",
+  "title": "HITL Flow Kit Workflow",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "version", "name", "steps"],
