@@ -166,9 +166,29 @@ async function simulateStep(step, { autoApprove }) {
   }
 
   if (step.type === "adapter_call") {
+    // Prototype: Route GitHub calls to our new adapter
+    if (step.adapter.name === "github") {
+      try {
+        const { execute } = await import("../adapters/github.mjs");
+        const result = await execute(step.adapter.action, step.adapter.params || {});
+        return {
+          status: "success",
+          message: result.message,
+          output: result.data
+        };
+      } catch (error) {
+        return {
+          status: "failed",
+          message: `Adapter error: ${error.message}`,
+          output: null
+        };
+      }
+    }
+
+    // Fallback for any other adapter names
     return {
       status: "simulated",
-      message: `mock adapter call: ${step.adapter.name}.${step.adapter.action}`,
+      message: `generic adapter call: ${step.adapter.name}.${step.adapter.action}`,
       output: {
         adapter: step.adapter.name,
         action: step.adapter.action,
