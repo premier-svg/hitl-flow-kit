@@ -1,0 +1,11 @@
+{
+  "id": "invalid-bad-type",
+  "version": "0.1.0",
+  "name": "Bad Step Type",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "magic-unsupported-type"
+    }
+  ]
+}

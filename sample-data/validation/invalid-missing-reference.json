@@ -1,0 +1,12 @@
+{
+  "id": "invalid-missing-ref",
+  "version": "0.1.0",
+  "name": "Missing Reference Flow",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "task",
+      "dependsOn": ["non-existent-step"]
+    }
+  ]
+}

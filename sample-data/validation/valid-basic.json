@@ -1,0 +1,12 @@
+{
+  "id": "valid-basic",
+  "version": "0.1.0",
+  "name": "Valid Basic Flow",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "task",
+      "name": "First Step"
+    }
+  ]
+}
