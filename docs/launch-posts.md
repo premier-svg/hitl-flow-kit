@@ -14,6 +14,15 @@ Release:
 https://github.com/premier-svg/hitl-flow-kit/releases/tag/v0.1.0
 ```
 
+## Recommended Launch Sequence
+
+1. Post `X English` first.
+2. Pin the English post.
+3. Post `X Japanese` as the second post after the English post is live.
+4. Use `Why I Built This` as a follow-up thread or next-day post.
+5. Use the three X follow-ups over the next 3-5 days.
+6. Use `Show HN Draft` after the GitHub README and first X post are live.
+
 ## X English
 
 ```text
