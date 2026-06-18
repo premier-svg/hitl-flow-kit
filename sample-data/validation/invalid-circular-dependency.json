@@ -1,0 +1,17 @@
+{
+  "id": "invalid-circular",
+  "version": "0.1.0",
+  "name": "Circular Dependency Flow",
+  "steps": [
+    {
+      "id": "step-a",
+      "type": "task",
+      "dependsOn": ["step-b"]
+    },
+    {
+      "id": "step-b",
+      "type": "task",
+      "dependsOn": ["step-a"]
+    }
+  ]
+}
