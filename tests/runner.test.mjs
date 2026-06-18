@@ -41,6 +41,17 @@ describe("workflow validation", () => {
     assert.match(validateWorkflow(workflow).join("\n"), /depends on missing step/);
   });
 
+  it("rejects non-object steps without throwing", () => {
+    const workflow = {
+      id: "invalid-step",
+      version: "0.1.0",
+      name: "Invalid Step",
+      steps: [null]
+    };
+
+    assert.deepEqual(validateWorkflow(workflow), ["steps[0] must be an object"]);
+  });
+
   it("detects cycles", () => {
     const workflow = {
       id: "cycle",

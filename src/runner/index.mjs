@@ -78,6 +78,10 @@ export function validateWorkflow(workflow) {
   }
 
   for (const step of workflow.steps) {
+    if (!step || typeof step !== "object") {
+      continue;
+    }
+
     for (const dependency of step.dependsOn ?? []) {
       if (!stepIds.has(dependency)) {
         errors.push(`step ${step.id} depends on missing step ${dependency}`);
@@ -88,7 +92,7 @@ export function validateWorkflow(workflow) {
     }
   }
 
-  const cycle = findCycle(workflow.steps);
+  const cycle = findCycle(workflow.steps.filter((step) => step && typeof step === "object"));
   if (cycle.length > 0) {
     errors.push(`cycle detected: ${cycle.join(" -> ")}`);
   }
