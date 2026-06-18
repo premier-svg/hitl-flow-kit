@@ -1,0 +1,71 @@
+{
+  "id": "issue-triage",
+  "version": "0.1.0",
+  "name": "Issue Triage",
+  "description": "Classify an incoming issue, ask for maintainer approval, and simulate label application.",
+  "owner": "maintainers",
+  "triggers": [
+    {
+      "type": "manual",
+      "name": "New public issue"
+    }
+  ],
+  "steps": [
+    {
+      "id": "classify",
+      "type": "task",
+      "name": "Classify issue",
+      "description": "Identify whether the issue is a bug report, docs request, question, or feature proposal.",
+      "output": {
+        "suggestedLabels": ["needs-triage", "example"]
+      }
+    },
+    {
+      "id": "check-reproduction",
+      "type": "task",
+      "name": "Check reproduction details",
+      "description": "Check whether the issue includes expected behavior, actual behavior, and local reproduction steps.",
+      "dependsOn": ["classify"],
+      "output": {
+        "hasReproduction": false
+      }
+    },
+    {
+      "id": "maintainer-approval",
+      "type": "approval",
+      "name": "Maintainer approval",
+      "description": "Pause before applying labels or posting a drafted reply.",
+      "dependsOn": ["check-reproduction"],
+      "approval": {
+        "role": "maintainer",
+        "prompt": "Review the suggested labels and reply before any adapter action is simulated."
+      }
+    },
+    {
+      "id": "apply-labels",
+      "type": "adapter_call",
+      "name": "Apply labels through mock adapter",
+      "description": "Simulate applying public repository labels.",
+      "dependsOn": ["maintainer-approval"],
+      "adapter": {
+        "name": "mock.github",
+        "action": "apply_labels",
+        "input": {
+          "labels": ["needs-triage", "example"]
+        }
+      },
+      "retry": {
+        "maxAttempts": 2,
+        "delaySeconds": 5
+      },
+      "onFailure": "require_approval"
+    },
+    {
+      "id": "write-audit-log",
+      "type": "notify",
+      "name": "Write audit log",
+      "description": "Record the classification, approval, and mock adapter action.",
+      "dependsOn": ["apply-labels"]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/agentops-flow-kit/workflow.schema.json",
+  "title": "AgentOps Flow Kit Workflow",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "name", "steps"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "version": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "triggers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "name"],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    }
+  },
+  "$defs": {
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["task", "approval", "adapter_call", "wait", "notify"]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "dependsOn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["role", "prompt"],
+          "properties": {
+            "role": {
+              "type": "string"
+            },
+            "prompt": {
+              "type": "string"
+            }
+          }
+        },
+        "adapter": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "action"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string"
+            },
+            "input": {
+              "type": "object"
+            }
+          }
+        },
+        "retry": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["maxAttempts", "delaySeconds"],
+          "properties": {
+            "maxAttempts": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "delaySeconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "onFailure": {
+          "type": "string",
+          "enum": ["stop", "continue", "require_approval"]
+        },
+        "output": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

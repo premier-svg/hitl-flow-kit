@@ -1,0 +1,79 @@
+{
+  "id": "appointment-coordination",
+  "version": "0.1.0",
+  "name": "Appointment Coordination",
+  "description": "Coordinate a meeting request with deduplication, approval, scheduling, reminder, and outcome logging.",
+  "owner": "operations",
+  "triggers": [
+    {
+      "type": "manual",
+      "name": "New meeting request"
+    }
+  ],
+  "steps": [
+    {
+      "id": "deduplicate-request",
+      "type": "task",
+      "name": "Deduplicate request",
+      "description": "Check sample data for existing open requests from the same fictional organization.",
+      "output": {
+        "duplicateFound": false
+      }
+    },
+    {
+      "id": "score-urgency",
+      "type": "task",
+      "name": "Score urgency",
+      "description": "Classify the request as normal, soon, or urgent using public-safe sample fields.",
+      "dependsOn": ["deduplicate-request"],
+      "output": {
+        "urgency": "soon"
+      }
+    },
+    {
+      "id": "operator-approval",
+      "type": "approval",
+      "name": "Operator approval",
+      "description": "Pause before sending any scheduling message.",
+      "dependsOn": ["score-urgency"],
+      "approval": {
+        "role": "operator",
+        "prompt": "Approve the proposed scheduling path for this dummy request."
+      }
+    },
+    {
+      "id": "create-calendar-hold",
+      "type": "adapter_call",
+      "name": "Create calendar hold through mock adapter",
+      "description": "Simulate placing a tentative calendar hold without contacting external systems.",
+      "dependsOn": ["operator-approval"],
+      "adapter": {
+        "name": "mock.calendar",
+        "action": "create_hold",
+        "input": {
+          "durationMinutes": 30,
+          "timezone": "UTC"
+        }
+      },
+      "retry": {
+        "maxAttempts": 2,
+        "delaySeconds": 10
+      },
+      "onFailure": "require_approval"
+    },
+    {
+      "id": "reminder-wait",
+      "type": "wait",
+      "name": "Wait until reminder window",
+      "description": "Represent a reminder delay without sleeping in the local runner.",
+      "dependsOn": ["create-calendar-hold"]
+    },
+    {
+      "id": "record-outcome",
+      "type": "notify",
+      "name": "Record outcome",
+      "description": "Record the final dummy outcome in the audit log.",
+      "dependsOn": ["reminder-wait"]
+    }
+  ]
+}

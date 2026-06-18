@@ -1,0 +1,37 @@
+<svg width="960" height="420" viewBox="0 0 960 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AgentOps Flow Kit workflow canvas preview">
+  <rect width="960" height="420" rx="18" fill="#101418"/>
+  <rect x="28" y="28" width="904" height="364" rx="14" fill="#151B20" stroke="#2B3944"/>
+  <text x="52" y="70" fill="#EAF2F7" font-family="Arial, sans-serif" font-size="28" font-weight="700">AgentOps Flow Kit</text>
+  <text x="52" y="98" fill="#91A4B3" font-family="Arial, sans-serif" font-size="15">Human-in-the-loop workflow canvas</text>
+  <g stroke="#607484" stroke-width="3" stroke-linecap="round">
+    <path d="M210 204H296"/>
+    <path d="M430 204H516"/>
+    <path d="M650 204H736"/>
+  </g>
+  <g>
+    <rect x="72" y="148" width="138" height="112" rx="10" fill="#22303A" stroke="#5FB3A4" stroke-width="2"/>
+    <circle cx="98" cy="177" r="12" fill="#5FB3A4"/>
+    <text x="120" y="182" fill="#EAF2F7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Trigger</text>
+    <text x="96" y="218" fill="#AAB8C2" font-family="Arial, sans-serif" font-size="13">New issue</text>
+  </g>
+  <g>
+    <rect x="296" y="148" width="138" height="112" rx="10" fill="#222B3A" stroke="#8FB3FF" stroke-width="2"/>
+    <circle cx="322" cy="177" r="12" fill="#8FB3FF"/>
+    <text x="344" y="182" fill="#EAF2F7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Task</text>
+    <text x="320" y="218" fill="#AAB8C2" font-family="Arial, sans-serif" font-size="13">Classify</text>
+  </g>
+  <g>
+    <rect x="516" y="148" width="138" height="112" rx="10" fill="#332936" stroke="#F0B86E" stroke-width="2"/>
+    <circle cx="542" cy="177" r="12" fill="#F0B86E"/>
+    <text x="564" y="182" fill="#EAF2F7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Approval</text>
+    <text x="540" y="218" fill="#AAB8C2" font-family="Arial, sans-serif" font-size="13">Maintainer gate</text>
+  </g>
+  <g>
+    <rect x="736" y="148" width="138" height="112" rx="10" fill="#263528" stroke="#7BD88F" stroke-width="2"/>
+    <circle cx="762" cy="177" r="12" fill="#7BD88F"/>
+    <text x="784" y="182" fill="#EAF2F7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Adapter</text>
+    <text x="760" y="218" fill="#AAB8C2" font-family="Arial, sans-serif" font-size="13">Mock action</text>
+  </g>
+  <rect x="72" y="302" width="802" height="46" rx="8" fill="#0E1216" stroke="#2B3944"/>
+  <text x="94" y="331" fill="#AAB8C2" font-family="Arial, sans-serif" font-size="14">Audit log: trigger.received -> task.completed -> approval.accepted -> adapter.simulated</text>
+</svg>

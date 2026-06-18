@@ -1,0 +1,28 @@
+{
+  "name": "agentops-flow-kit",
+  "version": "0.1.0",
+  "description": "Open-source workflow canvas and runner for human-in-the-loop AI agent operations.",
+  "type": "module",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "ai-agents",
+    "agentops",
+    "workflow",
+    "human-in-the-loop",
+    "automation",
+    "workflow-engine",
+    "developer-tools"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "validate": "node scripts/validate-workflows.mjs",
+    "scan:public": "node scripts/public-scan.mjs",
+    "run:issue": "node src/runner/cli.mjs examples/issue-triage-workflow/workflow.json",
+    "run:content": "node src/runner/cli.mjs examples/content-review-workflow/workflow.json",
+    "run:appointment": "node src/runner/cli.mjs examples/appointment-workflow/workflow.json"
+  }
+}

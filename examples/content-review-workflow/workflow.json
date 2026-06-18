@@ -1,0 +1,52 @@
+{
+  "id": "content-review",
+  "version": "0.1.0",
+  "name": "Content Review",
+  "description": "Review a draft with explicit style, risk, and editor approval steps.",
+  "owner": "editorial",
+  "triggers": [
+    {
+      "type": "manual",
+      "name": "Draft submitted"
+    }
+  ],
+  "steps": [
+    {
+      "id": "check-style",
+      "type": "task",
+      "name": "Check style guide",
+      "description": "Compare the draft against tone, structure, and clarity requirements.",
+      "output": {
+        "styleStatus": "needs-light-edit"
+      }
+    },
+    {
+      "id": "check-risk",
+      "type": "task",
+      "name": "Check factual risk",
+      "description": "Identify claims that require citations, owner review, or removal.",
+      "dependsOn": ["check-style"],
+      "output": {
+        "riskLevel": "low"
+      }
+    },
+    {
+      "id": "editor-approval",
+      "type": "approval",
+      "name": "Editor approval",
+      "description": "Pause before publishing or returning suggested edits.",
+      "dependsOn": ["check-risk"],
+      "approval": {
+        "role": "editor",
+        "prompt": "Review the style and risk findings before approving the suggested edit path."
+      }
+    },
+    {
+      "id": "record-suggestion",
+      "type": "notify",
+      "name": "Record suggested edit",
+      "description": "Write the approved edit suggestion to the audit log.",
+      "dependsOn": ["editor-approval"]
+    }
+  ]
+}
