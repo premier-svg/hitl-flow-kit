@@ -1,0 +1,18 @@
+{
+  "release": {
+    "repository": "example/hitl-flow-kit",
+    "plannedVersion": "0.1.1",
+    "releaseType": "patch",
+    "publicNotesOnly": true
+  },
+  "verification": {
+    "tests": "passed",
+    "workflowValidation": "passed",
+    "publicScan": "passed"
+  },
+  "maintainerDecision": {
+    "approved": true,
+    "reviewerRole": "maintainer",
+    "notes": "Dummy data only. No credentials, private URLs, or external calls."
+  }
+}

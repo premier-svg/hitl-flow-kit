@@ -12,7 +12,11 @@
     "human-in-the-loop",
     "automation",
     "workflow-engine",
-    "developer-tools"
+    "developer-tools",
+    "codex",
+    "oss",
+    "audit-log",
+    "approval-workflows"
   ],
   "engines": {
     "node": ">=20"
@@ -24,6 +28,7 @@
     "scan:public": "node scripts/public-scan.mjs",
     "run:issue": "node src/runner/cli.mjs examples/issue-triage-workflow/workflow.json",
     "run:content": "node src/runner/cli.mjs examples/content-review-workflow/workflow.json",
-    "run:appointment": "node src/runner/cli.mjs examples/appointment-workflow/workflow.json"
+    "run:appointment": "node src/runner/cli.mjs examples/appointment-workflow/workflow.json",
+    "run:release": "node src/runner/cli.mjs examples/release-checklist-workflow/workflow.json"
   }
 }

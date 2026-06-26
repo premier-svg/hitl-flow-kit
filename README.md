@@ -12,6 +12,17 @@ AI agents do not only fail because the model is weak. They fail because the work
 
 HITL Flow Kit turns those operating patterns into reusable workflow definitions that can be reviewed, tested, and maintained like code.
 
+## Maintainer Promise
+
+Use AI to prepare work, not to hide decisions.
+
+Every workflow in this repository is designed to make four things explicit:
+
+- the action an agent wants to take
+- the human role that must approve it
+- the adapter boundary where an external system would be touched
+- the audit event that explains what happened
+
 ## Why This Exists
 
 Most agent projects start as scripts, prompts, and scattered runbooks. That works for a demo, but it gets fragile when a real team needs to understand who approved an action, what retried, what was skipped, and where a human should take over.
@@ -45,6 +56,15 @@ npm run run:issue
 
 `npm install` is optional for `v0.1.0` because the project has no runtime dependencies. The command is included so the flow feels familiar in fresh clones.
 
+Run any example directly:
+
+```bash
+npm run run:issue
+npm run run:content
+npm run run:appointment
+npm run run:release
+```
+
 ## Example Workflows
 
 | Workflow | What it shows | Why it matters |
@@ -52,6 +72,9 @@ npm run run:issue
 | `examples/issue-triage-workflow` | Classify an issue, ask for maintainer approval, apply labels through a mock adapter, and write an audit event. | Maintainers can keep repository actions reviewable. |
 | `examples/content-review-workflow` | Check a draft against a style guide, pause for editor approval, and record the suggested result. | Teams can use agent review without losing editorial ownership. |
 | `examples/appointment-workflow` | Coordinate a meeting request with deduplication, approval, scheduling, reminder, and outcome logging. | Operations teams can model human handoffs before automation touches real systems. |
+| `examples/release-checklist-workflow` | Verify a release, pause for maintainer approval, draft release notes through a mock adapter, and record the audit trail. | OSS projects can make release automation reviewable before publishing anything. |
+
+See `docs/oss-maintainer-workflows.md` for the maintainer-oriented workflow map.
 
 ## Who It Is For
 
@@ -70,6 +93,7 @@ npm run run:issue
 - Static canvas preview
 - Public secret-pattern scan
 - GitHub issue and PR templates
+- Four public-safe workflow examples
 
 ## Workflow Shape
 
@@ -109,6 +133,7 @@ The current runner is intentionally small. It validates dependencies, detects cy
 npm run run:issue
 npm run run:content
 npm run run:appointment
+npm run run:release
 ```
 
 Example output:
@@ -162,7 +187,7 @@ Read `docs/redaction-policy.md` before adding new examples.
 - Adapter interface examples
 - CLI command for generating starter workflows
 - Exportable audit log format
-- Example release checklist workflow
+- Pull-request review workflow example
 - Human approval inbox prototype
 
 ## Maintainer Launch Pack
@@ -173,6 +198,7 @@ If you are preparing a public launch, use:
 - `docs/github-publishing.md` for repository description, topics, and release checklist
 - `docs/issue-drafts.md` for good-first-issue and help-wanted drafts
 - `docs/launch-posts.md` for launch post drafts
+- `docs/oss-maintainer-workflows.md` for maintainer use cases and adapter rules
 
 ## Contributing
 

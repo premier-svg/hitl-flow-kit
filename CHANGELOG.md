@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Release checklist workflow example for OSS maintainers
+- Public-safe release checklist sample data
+- OSS maintainer workflow guide
+- `npm run run:release` example runner command
+
+### Changed
+
+- README now highlights the maintainer promise, workflow map, and adapter boundary more clearly
+- Contributor guide now includes a starter contribution map
+
 ## v0.1.0 - Initial Public Preview
 
 HITL Flow Kit starts as a small, credential-free public preview for designing and running human-in-the-loop AI agent workflows.

@@ -4,23 +4,24 @@ Create these after the repository is public.
 
 ## Good First Issues
 
-### 1. Add a release checklist workflow example
+### 1. Add a pull-request review workflow example
 
 Labels: `good first issue`, `example`, `docs`
 
 ```md
-Add a new public-safe workflow example for release checklists.
+Add a new public-safe workflow example for pull-request review.
 
 Suggested path:
 
-- `examples/release-checklist-workflow/workflow.json`
+- `examples/pr-review-workflow/workflow.json`
 
 The workflow should include:
 
-- a manual release trigger
-- a task step for checking tests
+- a manual pull-request trigger
+- a task step for summarizing changed files
+- a task step for checking whether tests are mentioned
 - an approval step for maintainer review
-- a mock adapter call for creating a release note
+- a mock adapter call for drafting a review comment
 - a notify step for writing the audit log
 
 Keep all data fictional and make sure `npm run validate` passes.

@@ -1,0 +1,74 @@
+{
+  "id": "release-checklist",
+  "version": "0.1.0",
+  "name": "Release Checklist",
+  "description": "Prepare a public OSS release with verification, maintainer approval, release-note drafting, and audit logging.",
+  "owner": "maintainers",
+  "triggers": [
+    {
+      "type": "manual",
+      "name": "Maintainer starts release prep"
+    }
+  ],
+  "steps": [
+    {
+      "id": "check-version",
+      "type": "task",
+      "name": "Check version and changelog",
+      "description": "Confirm the planned version, changelog entry, and release scope are aligned.",
+      "output": {
+        "plannedVersion": "0.1.1",
+        "changelogReady": true
+      }
+    },
+    {
+      "id": "run-local-verification",
+      "type": "task",
+      "name": "Run local verification",
+      "description": "Represent the local test, workflow validation, and public scan checks that must pass before release.",
+      "dependsOn": ["check-version"],
+      "output": {
+        "commands": ["npm test", "npm run validate", "npm run scan:public"],
+        "verificationStatus": "passed"
+      }
+    },
+    {
+      "id": "maintainer-approval",
+      "type": "approval",
+      "name": "Maintainer approval",
+      "description": "Pause before drafting release notes or publishing anything.",
+      "dependsOn": ["run-local-verification"],
+      "approval": {
+        "role": "maintainer",
+        "prompt": "Review the verification result, changelog, and release scope before approving release-note drafting."
+      }
+    },
+    {
+      "id": "draft-release-notes",
+      "type": "adapter_call",
+      "name": "Draft release notes through mock adapter",
+      "description": "Simulate creating a release-note draft without calling a hosting provider.",
+      "dependsOn": ["maintainer-approval"],
+      "adapter": {
+        "name": "mock.github",
+        "action": "draft_release_notes",
+        "input": {
+          "tag": "v0.1.1",
+          "includeVerificationSummary": true
+        }
+      },
+      "retry": {
+        "maxAttempts": 2,
+        "delaySeconds": 5
+      },
+      "onFailure": "require_approval"
+    },
+    {
+      "id": "record-release-audit",
+      "type": "notify",
+      "name": "Record release audit",
+      "description": "Record the approved release scope, verification result, and mock release-note action.",
+      "dependsOn": ["draft-release-notes"]
+    }
+  ]
+}
