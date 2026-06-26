@@ -32,6 +32,7 @@ Checked on 2026-06-18 against the official OpenAI form and program page.
 - Current forks: 0
 - Current open issues: 8
 - CI: passing
+- Public-safe examples: issue triage, content review, appointment coordination, release checklist
 - Topics: `ai-agents`, `hitl`, `workflow`, `human-in-the-loop`, `automation`, `workflow-engine`, `developer-tools`, `codex`, `oss`, `audit-log`
 
 ## Form Fields
@@ -80,6 +81,12 @@ Maximum 500 characters.
 
 ```text
 HITL Flow Kit addresses a growing OSS need: safe human-in-the-loop AI agent workflows. It provides reusable primitives for approvals, audit logs, retries, handoffs, mock adapters, schemas, and examples for issue triage, content review, and appointment coordination. v0.1.0 is public with CI, release docs, security/redaction policy, and 8 maintainer-curated issues.
+```
+
+Updated version if resubmitting after the maintainer-workflow expansion:
+
+```text
+HITL Flow Kit addresses a growing OSS need: safe human-in-the-loop AI agent workflows. It provides reusable primitives for approvals, audit logs, retries, handoffs, mock adapters, schemas, and public examples for issue triage, content review, appointment coordination, and release checklists. The repo includes CI, release docs, a security/redaction policy, and curated contributor tasks.
 ```
 
 ### Interested In
