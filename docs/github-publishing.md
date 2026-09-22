@@ -41,7 +41,7 @@ audit-log
 
 - [ ] `npm run check` passes locally
 - [ ] README demo image renders on GitHub
-- [ ] `CHANGELOG.md` has the `v0.1.0` release note
+- [ ] `CHANGELOG.md` has the `v0.2.0` release note
 - [ ] No real credentials or private URLs
 - [ ] No real customer, lead, meeting, or production log data
 - [ ] GitHub description is set
@@ -50,15 +50,15 @@ audit-log
 - [ ] Discussions are enabled only if there is time to respond
 - [ ] The first five good-first-issues are created
 - [ ] The first three help-wanted issues are created
-- [ ] `v0.1.0` release is created
+- [ ] `v0.2.0` release is created
 
-## v0.1.0 Release Title
+## v0.2.0 Release Title
 
 ```text
-v0.1.0 - Initial public preview
+v0.2.0 - Maintainer workflow preview
 ```
 
-## v0.1.0 Release Notes
+## v0.2.0 Release Notes
 
 ~~~md
 HITL Flow Kit is an open-source workflow canvas and runner for human-in-the-loop AI agent operations.
@@ -73,7 +73,7 @@ This first public preview focuses on safe local primitives:
 - JSON workflow schema
 - public secret-pattern scan
 
-The included examples cover issue triage, content review, and appointment coordination. The repository intentionally avoids real API adapters, production URLs, credentials, background jobs, and customer data in v0.1.0.
+The included examples cover issue triage, content review, appointment coordination, release checklists, and pull-request review. The repository intentionally avoids real API adapters, production URLs, credentials, background jobs, and customer data in v0.2.0.
 
 Run:
 

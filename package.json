@@ -1,6 +1,6 @@
 {
   "name": "hitl-flow-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Open-source workflow canvas and runner for human-in-the-loop AI agent operations.",
   "type": "module",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "run:issue": "node src/runner/cli.mjs examples/issue-triage-workflow/workflow.json",
     "run:content": "node src/runner/cli.mjs examples/content-review-workflow/workflow.json",
     "run:appointment": "node src/runner/cli.mjs examples/appointment-workflow/workflow.json",
-    "run:release": "node src/runner/cli.mjs examples/release-checklist-workflow/workflow.json"
+    "run:release": "node src/runner/cli.mjs examples/release-checklist-workflow/workflow.json",
+    "run:pr-review": "node src/runner/cli.mjs examples/pr-review-workflow/workflow.json"
   }
 }

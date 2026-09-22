@@ -54,7 +54,7 @@ npm run scan:public
 npm run run:issue
 ```
 
-`npm install` is optional for `v0.1.0` because the project has no runtime dependencies. The command is included so the flow feels familiar in fresh clones.
+`npm install` is optional for `v0.2.0` because the project has no runtime dependencies. The command is included so the flow feels familiar in fresh clones.
 
 Run any example directly:
 
@@ -63,6 +63,7 @@ npm run run:issue
 npm run run:content
 npm run run:appointment
 npm run run:release
+npm run run:pr-review
 ```
 
 ## Example Workflows
@@ -73,6 +74,7 @@ npm run run:release
 | `examples/content-review-workflow` | Check a draft against a style guide, pause for editor approval, and record the suggested result. | Teams can use agent review without losing editorial ownership. |
 | `examples/appointment-workflow` | Coordinate a meeting request with deduplication, approval, scheduling, reminder, and outcome logging. | Operations teams can model human handoffs before automation touches real systems. |
 | `examples/release-checklist-workflow` | Verify a release, pause for maintainer approval, draft release notes through a mock adapter, and record the audit trail. | OSS projects can make release automation reviewable before publishing anything. |
+| `examples/pr-review-workflow` | Inspect changed files, check test notes, require maintainer approval, and draft a review comment through a mock adapter. | Maintainers can keep agent-assisted review gated and auditable. |
 
 See `docs/oss-maintainer-workflows.md` for the maintainer-oriented workflow map.
 
@@ -83,7 +85,7 @@ See `docs/oss-maintainer-workflows.md` for the maintainer-oriented workflow map.
 - Developers building agent tools that need approval and audit primitives
 - Product teams turning manual runbooks into explicit workflow definitions
 
-## What Ships in v0.1.0
+## What Ships in v0.2.0
 
 - Local workflow runner
 - Workflow validation
@@ -93,7 +95,8 @@ See `docs/oss-maintainer-workflows.md` for the maintainer-oriented workflow map.
 - Static canvas preview
 - Public secret-pattern scan
 - GitHub issue and PR templates
-- Four public-safe workflow examples
+- Five public-safe workflow examples
+- Pull-request review workflow example
 
 ## Workflow Shape
 
@@ -134,6 +137,7 @@ npm run run:issue
 npm run run:content
 npm run run:appointment
 npm run run:release
+npm run run:pr-review
 ```
 
 Example output:
@@ -157,7 +161,7 @@ Example output:
 
 Open `canvas/index.html` in a browser to see a static workflow canvas preview. The preview uses local data only.
 
-## Out of Scope for v0.1.0
+## Out of Scope for v0.2.0
 
 - Real API adapters
 - Hosted SaaS
@@ -194,7 +198,7 @@ Read `docs/redaction-policy.md` before adding new examples.
 
 If you are preparing a public launch, use:
 
-- `CHANGELOG.md` for the `v0.1.0` release note
+- `CHANGELOG.md` for the `v0.2.0` release note
 - `docs/github-publishing.md` for repository description, topics, and release checklist
 - `docs/issue-drafts.md` for good-first-issue and help-wanted drafts
 - `docs/launch-posts.md` for launch post drafts

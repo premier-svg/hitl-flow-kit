@@ -7,7 +7,9 @@ describe("workflow validation", () => {
     for (const file of [
       "examples/issue-triage-workflow/workflow.json",
       "examples/content-review-workflow/workflow.json",
-      "examples/appointment-workflow/workflow.json"
+      "examples/appointment-workflow/workflow.json",
+      "examples/release-checklist-workflow/workflow.json",
+      "examples/pr-review-workflow/workflow.json"
     ]) {
       const workflow = await loadWorkflow(file);
       assert.deepEqual(validateWorkflow(workflow), []);

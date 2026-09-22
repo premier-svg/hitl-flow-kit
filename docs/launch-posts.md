@@ -11,7 +11,7 @@ https://github.com/premier-svg/hitl-flow-kit
 Release:
 
 ```text
-https://github.com/premier-svg/hitl-flow-kit/releases/tag/v0.1.0
+https://github.com/premier-svg/hitl-flow-kit/releases/tag/v0.2.0
 ```
 
 ## Recommended Launch Sequence
@@ -73,7 +73,7 @@ I built an open-source workflow canvas and runner for AI agent operations.
 
 The goal is to make approval gates, audit logs, retries, handoffs, and replaceable adapters part of the workflow definition instead of scattered across scripts and docs.
 
-The first examples are issue triage, content review, and appointment coordination. The v0.1.0 release is intentionally local-only: no credentials, no production URLs, no background jobs, and no default network calls.
+The first examples are issue triage, content review, appointment coordination, release checklists, and pull-request review. The v0.2.0 release is intentionally local-only: no credentials, no production URLs, no background jobs, and no default network calls.
 
 Repo: https://github.com/premier-svg/hitl-flow-kit
 ```
@@ -98,7 +98,7 @@ https://github.com/premier-svg/hitl-flow-kit
 ## X Follow-up: Local-first Safety
 
 ```text
-v0.1.0 of HITL Flow Kit is intentionally local-only:
+v0.2.0 of HITL Flow Kit is intentionally local-only:
 
 - no credentials
 - no production URLs

@@ -16,7 +16,7 @@ https://developers.openai.com/community/codex-for-oss/
 
 ## Pre-submit Check
 
-Checked on 2026-06-18 against the official OpenAI form and program page.
+Checked on 2026-09-22 against the official OpenAI form and program page.
 
 - The form requires first name, last name, email, GitHub username, repository URL, maintainer role, qualification text, OpenAI Organization ID, API-credit usage text, and an optional final note.
 - The form states 500-character limits for `Why does this repository qualify?`, `How will you use API credits for your project?`, and `Anything else we should know?`.
@@ -26,14 +26,15 @@ Checked on 2026-06-18 against the official OpenAI form and program page.
 ## Current Public Repo Facts
 
 - Repository: https://github.com/premier-svg/hitl-flow-kit
-- Release: https://github.com/premier-svg/hitl-flow-kit/releases/tag/v0.1.0
+- Release: https://github.com/premier-svg/hitl-flow-kit/releases/tag/v0.2.0
 - Visibility: public
 - Current stars: 0
-- Current forks: 0
+- Current forks: 1
 - Current open issues: 8
 - CI: passing
 - Public-safe examples: issue triage, content review, appointment coordination, release checklist
 - Topics: `ai-agents`, `hitl`, `workflow`, `human-in-the-loop`, `automation`, `workflow-engine`, `developer-tools`, `codex`, `oss`, `audit-log`
+- Added public example: pull-request review with maintainer approval and a mock review adapter
 
 ## Form Fields
 
@@ -72,7 +73,7 @@ Primary maintainer
 Suggested text:
 
 ```text
-I am the primary maintainer and original author. I created the repository, designed the workflow schema and local runner, wrote the examples and documentation, set up CI, created the v0.1.0 release, and opened the initial good-first-issue and help-wanted backlog.
+I am the primary maintainer and original author. I created the repository, designed the workflow schema and local runner, wrote the examples and documentation, set up CI, created the v0.2.0 release, and maintain the good-first-issue and help-wanted backlog.
 ```
 
 ### Why does this repository qualify?
@@ -80,7 +81,7 @@ I am the primary maintainer and original author. I created the repository, desig
 Maximum 500 characters.
 
 ```text
-HITL Flow Kit addresses a growing OSS need: safe human-in-the-loop AI agent workflows. It provides reusable primitives for approvals, audit logs, retries, handoffs, mock adapters, schemas, and examples for issue triage, content review, and appointment coordination. v0.1.0 is public with CI, release docs, security/redaction policy, and 8 maintainer-curated issues.
+HITL Flow Kit addresses a growing OSS need: safe human-in-the-loop AI agent workflows. It provides reusable primitives for approvals, audit logs, retries, handoffs, mock adapters, schemas, and public examples for issue triage, content review, appointment coordination, release checklists, and pull-request review. v0.2.0 includes CI, release docs, security/redaction policy, and maintainer-curated contributor tasks.
 ```
 
 Updated version if resubmitting after the maintainer-workflow expansion:
@@ -95,8 +96,9 @@ Select:
 
 ```text
 API credits for my project
-Codex Security
 ```
+
+Do not select Codex Security unless the project has a concrete security-review use case.
 
 ### OpenAI Organization ID
 
@@ -121,7 +123,7 @@ I will use API credits for core OSS maintenance: issue triage, workflow schema r
 Maximum 500 characters.
 
 ```text
-The project is intentionally local-only in v0.1.0: no credentials, no production URLs, no background jobs, no default network calls, and mock adapters only. This makes it a safe base for contributors. I am applying early because Codex can help keep schemas, runner code, examples, docs, tests, and future adapters consistent as usage grows.
+The project is intentionally local-only in v0.2.0: no credentials, no production URLs, no background jobs, no default network calls, and mock adapters only. This makes it a safe base for contributors. Codex can help keep schemas, runner code, examples, docs, tests, and future adapters consistent as usage grows.
 ```
 
 ## Shorter Backup Versions
@@ -131,7 +133,7 @@ Use these if the form counts characters differently.
 ### Why this repo qualifies, shorter
 
 ```text
-HITL Flow Kit provides reusable OSS primitives for safe human-in-the-loop AI agent workflows: approvals, audit logs, retries, handoffs, mock adapters, schemas, and public examples. v0.1.0 is public with CI, release docs, a security/redaction policy, and 8 maintainer-curated issues.
+HITL Flow Kit provides reusable OSS primitives for safe human-in-the-loop AI agent workflows: approvals, audit logs, retries, handoffs, mock adapters, schemas, and public examples. v0.2.0 is public with CI, release docs, a security/redaction policy, and maintainer-curated contributor tasks.
 ```
 
 ### API credits, shorter
@@ -143,7 +145,7 @@ I will use API credits for OSS maintenance: issue triage, schema review, adapter
 ### Anything else, shorter
 
 ```text
-v0.1.0 is intentionally local-only: no credentials, production URLs, background jobs, default network calls, or real adapters. Codex can help keep the schema, runner, examples, tests, docs, and future adapters consistent as the project grows.
+v0.2.0 is intentionally local-only: no credentials, production URLs, background jobs, default network calls, or real adapters. Codex can help keep the schema, runner, examples, tests, docs, and future adapters consistent as the project grows.
 ```
 
 ## Submission Notes

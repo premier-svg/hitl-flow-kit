@@ -2,17 +2,33 @@
 
 ## Unreleased
 
+## v0.2.0 - Maintainer Workflow Preview (2026-09-22)
+
 ### Added
 
 - Release checklist workflow example for OSS maintainers
+- Pull-request review workflow example for OSS maintainers
 - Public-safe release checklist sample data
 - OSS maintainer workflow guide
 - `npm run run:release` example runner command
+- `npm run run:pr-review` example runner command
 
 ### Changed
 
 - README now highlights the maintainer promise, workflow map, and adapter boundary more clearly
 - Contributor guide now includes a starter contribution map
+
+### Verification
+
+```bash
+npm run check
+```
+
+Expected result:
+
+- Tests pass
+- Five example workflows validate
+- Public scan finds no high-risk secret patterns
 
 ## v0.1.0 - Initial Public Preview
 

@@ -1,0 +1,68 @@
+{
+  "id": "pr-review",
+  "version": "0.1.0",
+  "name": "Pull Request Review",
+  "description": "Prepare a pull-request review, require maintainer approval, and simulate drafting a review comment.",
+  "owner": "maintainers",
+  "triggers": [
+    {
+      "type": "manual",
+      "name": "Pull request opened"
+    }
+  ],
+  "steps": [
+    {
+      "id": "inspect-changes",
+      "type": "task",
+      "name": "Inspect changed files",
+      "description": "Summarize the changed files and identify the relevant test surface.",
+      "output": {
+        "changedFilesReviewed": true
+      }
+    },
+    {
+      "id": "check-tests",
+      "type": "task",
+      "name": "Check test coverage",
+      "description": "Check whether the pull request explains its test coverage and any remaining gaps.",
+      "dependsOn": ["inspect-changes"],
+      "output": {
+        "testNotesPresent": false
+      }
+    },
+    {
+      "id": "maintainer-approval",
+      "type": "approval",
+      "name": "Maintainer approval",
+      "description": "Pause before drafting or posting a review comment.",
+      "dependsOn": ["check-tests"],
+      "approval": {
+        "role": "maintainer",
+        "prompt": "Review the change summary and test notes before any review comment is drafted."
+      }
+    },
+    {
+      "id": "draft-review",
+      "type": "adapter_call",
+      "name": "Draft review through mock adapter",
+      "description": "Simulate preparing a review comment without contacting GitHub.",
+      "dependsOn": ["maintainer-approval"],
+      "adapter": {
+        "name": "mock.github",
+        "action": "draft_review_comment",
+        "input": {
+          "includeTestNotes": true,
+          "publish": false
+        }
+      },
+      "onFailure": "require_approval"
+    },
+    {
+      "id": "write-audit-log",
+      "type": "notify",
+      "name": "Write audit log",
+      "description": "Record the inspection, approval, and simulated review draft.",
+      "dependsOn": ["draft-review"]
+    }
+  ]
+}

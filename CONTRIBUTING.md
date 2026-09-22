@@ -10,7 +10,7 @@ npm run validate
 npm run scan:public
 ```
 
-The project has no runtime dependencies in `v0.1.0`.
+The project has no runtime dependencies in `v0.2.0`.
 
 ## Good Contributions
 
